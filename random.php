@@ -10,11 +10,17 @@ $input = [ 'A', 'B', "C", "D", "E", "F", "G", "a", "b", "c", "NU"];
 $t = rand(10, 30);
 $nts = array();
 for ($i = 0; $i < $t; $i++) {
-    $nts[] = $input[array_rand($input)];
+    $e = rand(1, 3);
+    $tmp = "";
+    for ($j = 0; $j < $e; $j++) {
+        $tmp[] = $input[array_rand($input)];
+    }
+    $nts[] = implode("|", $tmp);
 }
 $notes = implode(" ", $nts);
 
 $filenum = str_replace(" ", "-", $notes);
+$filenum = str_replace("|", "_", $filenum);
 
 @unlink("$filenum.dat");
 
