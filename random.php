@@ -24,8 +24,6 @@
 	$filenum = str_replace(" ", "-", $notes);
 	$filenum = str_replace("|", "_", $filenum);
 
-	//@unlink("$filenum.dat");
-
 	$handle2 = fopen("$filenum.dat", "a+");
 
 	/* $notes = $dMin;
@@ -57,8 +55,7 @@
 	$b = new sound(44, $vol);
 	$c = new sound(42, $vol);
 
-	$NU = new sound(10000000, $vol);
-	$nu = new sound(10000000, $vol);
+	$NU = $nu = new sound(10000000, $vol);
 
 	$list_of_notes_temp = explode(" ", $notes);
 	$list_of_notes = array();
